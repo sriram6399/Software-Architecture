@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "2c37e845-24f7-4b86-b5c6-e98365259608",
+		"name": "SA_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24520700"
+	},
+	"item": [
+		{
+			"name": "items_getall",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/items/getallitems",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"items",
+						"getallitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "items_post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Item 1\",\r\n    \"description\":\"This is item 1\",\r\n    \"price\":60.22,\r\n    \"qty_avail\":6,\r\n    \"qty_sold\": 1,\r\n    \"seller_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/items/additem",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"items",
+						"additem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "items_put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Item 2\",\r\n    \"description\":\"This is item 2\",\r\n    \"price\":30.22,\r\n    \"qty_avail\":6,\r\n    \"qty_sold\": 1,\r\n    \"seller_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/items/updateitem/2",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"items",
+						"updateitem",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "items_delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/items/deleteitem/3",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"items",
+						"deleteitem",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lists_getall",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/lists/getalllists",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"lists",
+						"getalllists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"List 1\",\r\n    \"description\":\"This is list 1\",\r\n    \"list_type\":\"SELLER_ITEM\",\r\n    \"owner_id\":1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/lists/addlist",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"lists",
+						"addlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put list",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"List 2\",\r\n    \"description\":\"This is list 2\",\r\n    \"list_type\":\"MY_CART_ITEM\",\r\n    \"owner_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/lists/updatelist/2",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"lists",
+						"updatelist",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/lists/deletelist/3",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"lists",
+						"deletelist",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/users/getallusers",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"users",
+						"getallusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\":\"user1\",\r\n    \"password\":\"password\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/users/adduser",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"users",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\":\"user1\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/users/updateuser/2",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"users",
+						"updateuser",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/users/deleteuser/3",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"users",
+						"deleteuser",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/listitem/getalllistitems",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"listitem",
+						"getalllistitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post list item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_of_item\":1,\r\n    \"id_of_list\":1,\r\n    \"qty_of_item\":2\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/listitem/addlistitem",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"listitem",
+						"addlistitem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put list item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_of_item\":2,\r\n    \"id_of_list\":1,\r\n    \"qty_of_item\":2\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/listitem/updateitem/1",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"listitem",
+						"updateitem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete list item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/listitem/deleteitem/1",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"listitem",
+						"deleteitem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/userlist/getalluserlist",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"userlist",
+						"getalluserlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post user list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"for_sale\":1,\r\n    \"my_cart\":2,\r\n    \"recommended_items\":1,\r\n    \"past_purchases\":1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/userlist/adduserlist",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"userlist",
+						"adduserlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put user list",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"for_sale\":1,\r\n    \"my_cart\":2,\r\n    \"recommended_items\":1,\r\n    \"past_purchases\":1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/userlist/updateuserlist/1",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"userlist",
+						"updateuserlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://saprojectserver-env.eba-iyzyvt2a.us-east-2.elasticbeanstalk.com/userlist/deleteuserlist/1",
+					"protocol": "http",
+					"host": [
+						"saprojectserver-env",
+						"eba-iyzyvt2a",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"userlist",
+						"deleteuserlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

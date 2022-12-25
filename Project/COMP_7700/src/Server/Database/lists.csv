@@ -1,0 +1,3 @@
+list_id,title,description,list_type,owner_id
+0,'wish_list','list containing test users wish list',MY_CART_ITEM,0
+1,'some_list','list containing test users stuff',SELLER_ITEM,0

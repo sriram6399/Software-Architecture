@@ -1,0 +1,23 @@
+#Ignore the git info
+.git/
+.gitignore
+
+#Ignore the GUI
+run_gui.sh
+src/GUI
+
+#Ignore the Database
+src/Server/Database/
+
+#Ignore the Docker info
+compose.yaml
+src/Server/Backend/Dockerfile
+.dockerignore
+
+#Ignore the README
+README.md
+
+#Ignore all the random
+out/
+.idea/
+COMP_7700.iml

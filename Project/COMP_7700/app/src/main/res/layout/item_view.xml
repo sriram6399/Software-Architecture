@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="#F6F5F5">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtViewTitleOfItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Title of Item" />
+
+        <TextView
+            android:id="@+id/txtViewPriceOfItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewTitleOfItem"
+            android:layout_centerHorizontal="true"
+            android:text="Price of Item" />
+
+        <TextView
+            android:id="@+id/txtViewDescriptionOfItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewPriceOfItem"
+            android:layout_centerHorizontal="true"
+            android:text="Description of Item" />
+
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewDescriptionOfItem"
+            android:layout_centerHorizontal="true"
+            android:text="Add to Cart"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnRemoveFromCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove from Cart"
+            android:textAllCaps="false"
+            android:layout_below="@+id/txtViewDescriptionOfItem"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnRemoveFromSale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove from Sale"
+            android:textAllCaps="false"
+            android:layout_below="@+id/txtViewDescriptionOfItem"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,170 @@
+<project name="final_project" default="bin" basedir=".">
+    <description>
+        Builds the project for COMP 7700.
+    </description>
+
+    <!-- Set global properties for this build -->
+    <property environment="env"/>
+    <!-- The below line is an example of how to add 3rd party dependencies -->
+    <property name="mysql-connector" location="external/mysql-connector-java-8.0.16.jar"/>
+    <property name="jsonobject" location="external/json-simple-1.1.1.jar"/>
+	<property name="src" location="src"/>
+    <property name="src_gui" location="${src}/GUI"/>
+    <property name="src_server" location="${src}/Server"/>
+	<property name="build" location="build"/>
+    <property name="build_gui" location="${build}/GUI"/>
+    <property name="build_server" location="${build}/server"/>
+	<property name="bin" location="bin"/>
+    <property name="main-gui-class" value="Application"/>
+    <property name="main-server-class" value="Server"/>
+    <property name="ant.version.required" value="1.09.2"/>
+
+	<path id="build_gui.classpath">
+        <pathelement location="${build_gui}"/>
+    <!-- The below line is an example of how to add 3rd party dependencies
+        <pathelement location="${mysql-connector}"/>
+    -->
+        <pathelement location="${jsonobject}"/>
+    </path>
+
+	<path id="build_server.classpath">
+        <pathelement location="${build_server}"/>
+    <!-- The below line is an example of how to add 3rd party dependencies -->
+        <pathelement location="${mysql-connector}"/>
+        <pathelement location="${jsonobject}"/>
+    </path>
+
+	<target name="check-ant-version">
+		<fail message="Ant version ${ant.version.required} or newer is required (${ant.version} is installed)">
+			<condition>
+				<not><antversion atleast="${ant.version.required}"/></not>
+			</condition>
+		</fail>
+	</target>
+
+    <!--
+	<target name="check-java-version">
+		<fail message="Unsupported Java version: ${ant.java.version}. Make sure that the Java version is 1.7 or greater.">
+			<condition>
+				<or>
+					<equals arg1="${ant.java.version}" arg2="1.0"/>
+					<equals arg1="${ant.java.version}" arg2="1.1"/>
+					<equals arg1="${ant.java.version}" arg2="1.2"/>
+					<equals arg1="${ant.java.version}" arg2="1.3"/>
+					<equals arg1="${ant.java.version}" arg2="1.4"/>
+					<equals arg1="${ant.java.version}" arg2="1.5"/>
+					<equals arg1="${ant.java.version}" arg2="1.6"/>
+				</or>
+			</condition>
+		</fail>
+	</target>
+    -->
+
+	<target name="dir.checks">
+		<condition property="bin.dir.exists">
+			<available file="${bin}" type="dir"/>
+		</condition>
+
+		<condition property="build.dir.exists">
+			<available file="${build}" type="dir"/>
+		</condition>
+
+		<condition property="build_gui.dir.exists">
+			<available file="${build_gui}" type="dir"/>
+		</condition>
+	</target>
+
+	<target name="check-bin-directory" depends="dir.checks" unless="bin.dir.exists">
+		<echo>Creating ${bin} directory</echo>
+		<mkdir dir="${bin}"/>
+	</target>
+
+	<target name="check-build-directory" depends="dir.checks" unless="build.dir.exists">
+		<echo>Creating ${build_gui} directory</echo>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="check-build-gui-directory" depends="dir.checks, check-build-directory" unless="build_gui.dir.exists">
+		<echo>Creating ${build_gui} directory</echo>
+		<mkdir dir="${build_gui}"/>
+	</target>
+
+	<target name="check-build-server-directory" depends="dir.checks, check-build-directory" unless="build_server.dir.exists">
+		<echo>Creating ${build_gui} directory</echo>
+		<mkdir dir="${build_server}"/>
+	</target>
+
+    <target name="init" 
+            depends="
+                check-ant-version">
+                <!-- check-java-version"> -->
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<echo>Using Java version: ${ant.java.version}</echo>
+	</target>
+
+	<target name="compile-gui"
+			depends="
+				init,
+				check-build-gui-directory"
+			description="Compile the source">
+
+		<presetdef name="base.javac">
+			<javac destdir="${build_gui}" debug="true" includeantruntime="false">
+				<classpath refid="build_gui.classpath"/>
+			</javac>
+		</presetdef>
+
+        <base.javac srcdir="${src_gui}" />
+    </target>
+
+	<target name="compile-server"
+			depends="
+				init,
+				check-build-server-directory"
+			description="Compile the source">
+
+		<presetdef name="base.javac">
+			<javac destdir="${build_server}" debug="true" includeantruntime="false">
+				<classpath refid="build_server.classpath"/>
+			</javac>
+		</presetdef>
+
+        <base.javac srcdir="${src_server}" />
+    </target>
+
+    <target name="gui" depends="compile-gui, check-bin-directory"
+            description="Generate the distribution">
+		<!-- Put everything in ${build_gui} into ${ant.project.name}.jar file -->
+		<!-- <jar jarfile="bin/${ant.project.name}-${DSTAMP}.jar" basedir="${build_gui}"/> -->
+		<jar destfile="${bin}/${ant.project.name}.jar" basedir="${build_gui}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-gui-class}"/>
+			</manifest>
+		</jar>
+	</target>
+
+    <target name="server" depends="compile-server, check-bin-directory"
+            description="Generate the distribution">
+		<!-- Put everything in ${build_gui} into ${ant.project.name}.jar file -->
+		<!-- <jar jarfile="bin/${ant.project.name}-${DSTAMP}.jar" basedir="${build_gui}"/> -->
+		<jar destfile="${bin}/${ant.project.name}.jar" basedir="${build_server}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-server-class}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean-build"
+			description="Clean up build only">
+		<!-- Delete the ${build} directory -->
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="clean" depends="clean-build"
+			description="Clean up">
+		<!-- Delete the ${build} and ${dest} directory trees -->
+		<delete file="bin/${ant.project.name}.jar"/>
+	</target>
+
+</project>

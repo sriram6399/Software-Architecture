@@ -1,0 +1,33 @@
+services:
+  database:
+    build: 
+      context: ./src/Server/Database/
+      dockerfile: Dockerfile_New_Server
+    container_name: database
+    env_file:
+      - ./src/Server/Database/mysql_variables.env
+    restart: always
+    volumes:
+      - ~/data/comp_7700:/var/lib/mysql
+
+  server_python:
+    build: 
+      context: ./Server_Python/
+      dockerfile: Dockerfile
+    container_name: server_python
+    ports:
+      - "8000:8000"
+    restart: always
+
+  server_new:
+    build: 
+      context: ./Server_new/
+      dockerfile: Dockerfile
+    container_name: server_new
+    env_file:
+      - ./Server_new/spring_variables.env
+    ports:
+      - "5001:5000"
+    links:
+      - database
+    #restart: always

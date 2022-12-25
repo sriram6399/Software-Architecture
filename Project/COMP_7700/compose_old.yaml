@@ -1,0 +1,18 @@
+services:
+  database:
+    build: ./src/Server/Database/
+    container_name: database
+    env_file:
+      - ./src/Server/Database/mysql_variables.env
+    restart: always
+    volumes:
+      - ~/data/comp_7700:/var/lib/mysql
+
+  server:
+    build: 
+      context: .
+      dockerfile: ./src/Server/Backend/Dockerfile
+    container_name: server
+    ports:
+      - "23987:23987"
+    restart: always

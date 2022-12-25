@@ -1,0 +1,3 @@
+item_id,title,description,price,qty_avail,qty_sold,seller_id
+0,'test_item','description of test_item',5.99,1,0,0
+1,'item_test','description of item_test',6.99,2,0,0
